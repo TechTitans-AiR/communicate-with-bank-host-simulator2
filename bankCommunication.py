@@ -21,10 +21,10 @@ def handle_transaction():
 
 
         # API URL for Docker
-        #api_url = "http://host.docker.internal:8088/api/v1/transactions/processTransaction"
+        api_url = "http://host.docker.internal:8088/api/v1/transactions/processTransaction"
 
         # API URL for localhost
-        api_url = "http://localhost:8088/api/v1/transactions/processTransaction"
+        #api_url = "http://localhost:8088/api/v1/transactions/processTransaction"
 
         json_body = json.dumps(request_body)
         headers = {'Content-Type': 'application/json'}
@@ -41,4 +41,4 @@ def handle_transaction():
         return str(e), 500
 
 if __name__ == '__main__':
-    app.run(port=8087)
+    app.run(host = '0.0.0.0', port=8087 )
